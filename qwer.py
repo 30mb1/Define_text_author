@@ -32,9 +32,7 @@ for (p, d, f) in os.walk("C:\\Users\\User\\Downloads\\Books"):
 
         for word in sety:
             print(word, " ", end='')
-            if (word in wordsused):
-                print("BIIIIIIIIIIIIIIILOOOOOOOOOOOOOOO", end=' ')
-            else:
+            if (word not in wordsused):
                 wordsused[word] = pymorphy2.MorphAnalyzer().parse(word)[0].normal_form
             timedict[wordsused[word]] = timedict.get(wordsused[word], 0) + listy.count(word)
             print(wordsused[word])
